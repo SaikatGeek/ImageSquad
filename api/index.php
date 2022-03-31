@@ -9,10 +9,7 @@ use Api\Helper\Http;
 
 
 echo Request::endpoint();
-echo Router::get("service", function()
-{
-    echo "foo";
-});
+echo Router::get("service", "HomeController@demoFunction");
 
 
 // print_r( new Http);

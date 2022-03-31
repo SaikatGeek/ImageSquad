@@ -23,6 +23,8 @@ class Router extends Http
 
     private Bool $ssl = FALSE;
 
+    private const LIMIT = 2; 
+
     private $Http ;
 
     function __construct()
@@ -42,21 +44,33 @@ class Router extends Http
         return $this->acceptVerb($name);
     }
 
-    public function argumentValidation($name, $arguments): bool
+    public function closureArgumentValidation($arguments): bool
     {
         return ($arguments[1] instanceof \Closure) 
             && is_callable($arguments[1]) 
-            && !is_string($arguments[1]) 
-            && is_string($arguments[0]);
+            && !is_string($arguments[1]);
+    }
+
+    public function stringArgumentValidation($arguments): bool
+    {
+        return is_string($arguments[1]);
     }
 
     private function callStaticControllerPassFromRoute($name, $arguments){
-        if( $this->argumentValidation($name, $arguments) ){
-            
-            return Controller::__callStatic($name, $arguments);
+        if( self::LIMIT === count($arguments) ){
+            if( 
+                $this->closureArgumentValidation($arguments) 
+                || $this->stringArgumentValidation($arguments)
+            ){
+                return Controller::__callStatic($name, $arguments);
+            }
+            else{
+                print("stop!");
+                // return throw new error();
+            }
         }
         else{
-            // return throw new error();
+            // return throw new error(); // don't allow too much argument
         }
     }
 
