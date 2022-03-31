@@ -8,10 +8,15 @@ class Controller
         
     }
 
+
+
     public static function __callStatic($name, $arguments)
     {
         echo "\n";
         var_dump($name);
         var_dump($arguments);
+        $self = new self;
+
+        // $self->checkControllerFile
     }
 }
