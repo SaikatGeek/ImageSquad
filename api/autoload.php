@@ -5,6 +5,10 @@ function SplAutoload ($name) {
         $path = str_replace("Api\\", "", $name);
         include_once  $path . ".php";
     }
+
+    if (!class_exists($name, false)) {
+        throw new LogicException("Unable to load class: $name");
+    }
 }
 
 spl_autoload_register("SplAutoload");

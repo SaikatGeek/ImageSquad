@@ -6,11 +6,16 @@ class HomeController
 {
     function __construct()
     {
-        echo "yes";
+
     }
 
     public function demoFunction()
     {
-        echo "demoFunction";
+        echo "array";
+        // return [
+        //     "array" => 555,
+        //     "config" => "log"
+        // ];
     }
+
 }

@@ -13,7 +13,7 @@ return [
     |
     */
     
-    'Controller' => "api/Controller/",
+    'Controller' => "\api\Controller\\",
 
 
 ];
