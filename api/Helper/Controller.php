@@ -38,7 +38,7 @@ class Controller extends FileHandler
 
         }
         else{
-            // return // return throw new error(); Can't find controller/ wrong controller/invalid controller
+            throw new \Exception("{$_controllerName} is a invalid controller class");
         }
 
     }

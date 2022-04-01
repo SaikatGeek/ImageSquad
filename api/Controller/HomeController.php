@@ -11,11 +11,7 @@ class HomeController
 
     public function demoFunction()
     {
-        echo "array";
-        // return [
-        //     "array" => 555,
-        //     "config" => "log"
-        // ];
+        
     }
 
 }
