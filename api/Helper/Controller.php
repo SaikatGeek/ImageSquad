@@ -48,6 +48,8 @@ class Controller extends FileHandler
 
         $controllerMethodCall = new \ReflectionMethod($className, $methodName);
         return $controllerMethodCall->invoke(new $className);
+        
+        // return call_user_func_array([$className, $methodName], []);
 
     }
 
