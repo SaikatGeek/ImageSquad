@@ -26,5 +26,7 @@ class Request
         return implode( "/", array_slice( explode( "/", (new self)->path() ), 2 )  );
     }
 
+    
+
 
 }
