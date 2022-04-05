@@ -4,21 +4,21 @@ import env from '../env.json';
 
 
 const Home = () => {
-    // const [imageList, seImageList] = useState([]);
+    // const [imageList, setImageList] = useState([]);
+    const [img, setImg] = useState('');
 
     useEffect( () => {
         let url = `${env.API_BASE_URL}/mock`;
         (async () => {
             await axios.get(url)
             .then( response => {
-                console.log(response);
+                setImg(response.data);
             })
             .catch( error => {
                 console.log(error);
             });
         })()
         
-       
     }, [])
 
 
@@ -26,7 +26,7 @@ const Home = () => {
         <div className="Container">
             <div className="row">
                 <div className="col">
-                    ee
+                    <img src={`data:image/jpeg;base64,${img}`} />
                 </div>
             </div>
         </div>
