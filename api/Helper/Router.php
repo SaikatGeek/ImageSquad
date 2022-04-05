@@ -31,7 +31,13 @@ class Router extends Http
     {
 
         self::$uri = $_SERVER["REQUEST_URI"];
+        $this->corsProtection();
        
+    }
+
+    public function corsProtection(){
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, PUT');
     }
 
     public static function protocol()
