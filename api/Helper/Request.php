@@ -9,6 +9,8 @@ class Request
     function __construct()
     {
         $this->uri = $_SERVER['REQUEST_URI'];
+
+        echo "ha;lum";
         
     }
 
