@@ -27,19 +27,22 @@ class Router extends Http
 
     private $Http ;
 
+    public $RouteMap = [];
+
     function __construct()
     {
 
         self::$uri = $_SERVER["REQUEST_URI"];
         $this->corsProtection();
+        
        
     }
 
     public function corsProtection(){
-        header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+        header('Access-Control-Allow-Origin: * ');
         header('Access-Control-Allow-Methods: GET, PUT, POST');
         header('Access-Control-Max-Age: 1000');
-        header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+        header('Access-Control-Allow-Headers: *');
     }
 
     public static function protocol()
@@ -81,6 +84,7 @@ class Router extends Http
                 || $this->stringArgumentValidation($arguments)
             ){
                 return Controller::__callStatic($name, $arguments);
+                
             }
             else{
                 print("stop!");
@@ -100,6 +104,7 @@ class Router extends Http
         $newSelf = new self;
         if( $newSelf->checkSupportedMethod( strtoupper($name) )){
             return $newSelf->callStaticControllerPassFromRoute($name, $arguments);
+
         }
         else{
             // return throw new error(); invalid http verb
