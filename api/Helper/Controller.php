@@ -2,6 +2,7 @@
 namespace Api\Helper;
 
 use Api\Helper\FileHandler;
+use Api\Helper\Request;
 
 
 class Controller extends FileHandler
@@ -12,6 +13,8 @@ class Controller extends FileHandler
     public static $controllerNamespace = "Api" . "\Controller\\";
 
     public static $controllerList = [];
+
+    public static $routeName;
 
     public static function expectedControllerMethodCall($controllerName)
     {
@@ -44,11 +47,17 @@ class Controller extends FileHandler
     }
     
     public static function callMethod($className, $methodName)
-    {
+    {   
+        $routeCombine = array_fill_keys([self::$routeName], $methodName);
 
-        $controllerMethodCall = new \ReflectionMethod($className, $methodName);
-        return $controllerMethodCall->invoke(new $className);
-        
+        if( array_key_exists(Request::endpoint() ,$routeCombine) ){
+            $controllerMethodCall = new \ReflectionMethod($className, $methodName);
+            return $controllerMethodCall->invoke(new $className);
+        }
+        else{
+            return;
+        }
+
         // return call_user_func_array([$className, $methodName], []);
 
     }
@@ -103,8 +112,9 @@ class Controller extends FileHandler
 
     public static function __callStatic($name, $arguments)
     {
-
-        return self::expectedControllerMethodCall($arguments[1]);
+        self::$routeName = $arguments[0];
+        
+        return self::expectedControllerMethodCall($arguments[1] );
        
     }
 
