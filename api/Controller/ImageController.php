@@ -35,9 +35,8 @@ class ImageController
         self::$height = 450;
         $imagick = new \Imagick( realpath($file->projectRootPath()."\api\Storage\RawImage\\1.jpg") );
         $imagick->adaptiveResizeImage(self::$width, self::$height, $bestFit = false);
-        // header("Content-Type: image/jpeg");
-        // echo $imagick->getImageBlob();
-        echo "img";
+        header("Content-Type: image/jpeg");
+        echo base64_encode( $imagick->getImageBlob() );
         $imagick->clear();
     }
 
