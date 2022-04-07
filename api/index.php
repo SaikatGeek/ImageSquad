@@ -9,4 +9,9 @@ use Api\Controller\ImageController;
 
 
 // echo Request::endpoint();
+
 Router::get("mock", "ImageController@resizeImage");
+Router::get("gallery", "ImageController@galleryImageList");
+
+
+
