@@ -1,22 +1,19 @@
 import React, {useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import env from '../env.json';
 
 
 const Home = () => {
-    // const [imageList, setImageList] = useState([]);
-    const [img, setImg] = useState('');
+    const [imageList, setImageList] = useState([]);
 
     useEffect( () => {
-        let url = `${env.API_BASE_URL}/mock`;
+        let url = `${env.API_BASE_URL}/gallery`;
         (async () => {
-            await axios.post(url, {
-                width: 560,
-                height: 450
-            })
+            await axios.get(url)
             .then( response => {
-                // setImg(response.data);
-                console.log(response);
+                let imageUrl = Object.entries(response.data);
+                setImageList(imageUrl);
             })
             .catch( error => {
                 console.log(error);
@@ -28,10 +25,22 @@ const Home = () => {
 
     return (
         <div className="Container">
-            <div className="row">
-                <div className="col">
-                    {/* <img src={`data:image/jpeg;base64,${img}`} /> */}
-                </div>
+            <div className="row g-0 py-2">
+                {
+                    imageList.map( (data, key) => 
+                        <div className="col-md-4 col-sm-6 col-12 " key={key}>
+                            <Link to={`/image/edit/${data[0]}`} key={data[1]+2}>
+                                <img 
+                                    className="img-fluid mx-auto d-block py-2" 
+                                    src={`${env.API_IMAGE_URL}${data[1]}`} 
+                                    alt="" 
+                                    key={data[1]} 
+                                    style={{height: "360px", width: "520px"}}
+                                />
+                            </Link>
+                        </div>
+                    )
+                }
             </div>
         </div>
     )
