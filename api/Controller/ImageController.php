@@ -18,14 +18,13 @@ class ImageController
         foreach ($iterator as $fileInfo) {
             if( $iterator->isFile() ){
                 if(in_array( $iterator->getExtension(), ['jpg', 'png', 'jpeg'])){
-                    array_push($galleryImageList, "/api/Storage/RawImage/" . $iterator->getFilename() );
+                    $galleryImageList += [explode(  ".", $iterator->getFilename() )[0] => "/api/Storage/RawImage/" . $iterator->getFilename() ];
                 }
             }
         }
 
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($galleryImageList);
-
+        echo json_encode( $galleryImageList );
     }
     
     public static function resizeImage()
