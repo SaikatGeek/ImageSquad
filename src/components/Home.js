@@ -29,7 +29,7 @@ const Home = () => {
                 {
                     imageList.map( (data, key) => 
                         <div className="col-md-4 col-sm-6 col-12 " key={key}>
-                            <Link to={`/image/edit/${data[0]}`} key={data[1]+2}>
+                            <Link to={`/image/edit`} state={{ data: data }} key={data[1]+2}>
                                 <img 
                                     className="img-fluid mx-auto d-block py-2" 
                                     src={`${env.API_IMAGE_URL}${data[1]}`} 
