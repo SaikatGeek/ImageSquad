@@ -13,7 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={ <Home /> } />
-        <Route path="/image/edit/:id" element={ <ImageEditing /> } />
+        <Route path="/image/edit" element={ <ImageEditing /> } />
       </Routes>
 
     </React.Fragment>
