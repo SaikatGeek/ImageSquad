@@ -13,6 +13,7 @@ const Home = () => {
             await axios.get(url)
             .then( response => {
                 let imageUrl = Object.entries(response.data);
+                console.log(imageUrl)
                 setImageList(imageUrl);
             })
             .catch( error => {
@@ -24,25 +25,37 @@ const Home = () => {
 
 
     return (
-        <div className="Container">
-            <div className="row g-0 py-2">
-                {
-                    imageList.map( (data, key) => 
-                        <div className="col-md-4 col-sm-6 col-12 " key={key}>
-                            <Link to={`/image/edit`} state={{ data: data }} key={data[1]+2}>
-                                <img 
-                                    className="img-fluid mx-auto d-block py-2" 
-                                    src={`${env.API_IMAGE_URL}${data[1]}`} 
-                                    alt="" 
-                                    key={data[1]} 
-                                    style={{height: "360px", width: "520px"}}
-                                />
-                            </Link>
-                        </div>
-                    )
-                }
+        
+        <div className="col-11 col-md-10 m-auto pt-5">
+            <div className="card border-secondary" >
+                <div className="row">
+                    {
+                        imageList.map( (data, key) => 
+                            <div className="col-md-4  " key={key}>
+                                <div className="card p-2 m-2 border-secondary" >
+                                        <Link to={`/image/edit`} state={{ data: data }} key={data[1]}>
+                                            <img 
+                                                className="img-fluid mx-auto d-block" 
+                                                src={`${env.API_IMAGE_URL}${data[1]}`} 
+                                                alt="" 
+                                                key={data[1]} 
+                                                style={{height: "360px", width: "580px"}}
+                                            />
+                                        </Link>
+                                    <div className="card-body">
+                                        <p className="card-text"> {`${data[0]}.${data[1].split(".").pop()}`}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                
+               
             </div>
         </div>
+
+        
     )
     
 }
