@@ -8,14 +8,11 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <React.Fragment>
-
       <Header />
-
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/image/edit" element={ <ImageEditing /> } />
       </Routes>
-
     </React.Fragment>
   );
 }
