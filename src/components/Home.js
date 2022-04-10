@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import env from '../env.json';
 
-
 const Home = () => {
   const [imageList, setImageList] = useState([]);
 
@@ -13,7 +12,6 @@ const Home = () => {
       await axios.get(url)
         .then( response => {
           let imageUrl = Object.entries(response.data);
-          console.log(imageUrl)
           setImageList(imageUrl);
         })
         .catch( error => {
