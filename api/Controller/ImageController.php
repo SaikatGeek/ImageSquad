@@ -34,9 +34,10 @@ class ImageController
         $file = new FileHandler;
         $width = $data['width'] > 100 ? $data['width'] : 100;
         $height = $data['height'] > 100  ? $data['height'] : 100;
-        $bestFit = $data['bestFit'] ?? true;
+        $bestFit = $data['bestFit'] === true ? true : false;
+        $imagePath = $data['imagePath'];
 
-        $imagick = new \Imagick( realpath($file->projectRootPath()."\api\Storage\RawImage\\1.jpg") );
+        $imagick = new \Imagick( realpath($file->projectRootPath().$imagePath) );
         $imagick->adaptiveResizeImage($width, $height, $bestFit);
         header("Content-Type: image/jpeg");
         echo base64_encode( $imagick->getImageBlob() );
