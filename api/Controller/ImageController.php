@@ -29,11 +29,15 @@ class ImageController
     
     public static function resizeImage()
     {
+        $data = json_decode( file_get_contents('php://input'), true );
+
         $file = new FileHandler;
-        self::$width = 500;
-        self::$height = 450;
+        $width = $data['width'] > 100 ? $data['width'] : 100;
+        $height = $data['height'] > 100  ? $data['height'] : 100;
+        $bestFit = $data['bestFit'] ?? true;
+
         $imagick = new \Imagick( realpath($file->projectRootPath()."\api\Storage\RawImage\\1.jpg") );
-        $imagick->adaptiveResizeImage(self::$width, self::$height, $bestFit = false);
+        $imagick->adaptiveResizeImage($width, $height, $bestFit);
         header("Content-Type: image/jpeg");
         echo base64_encode( $imagick->getImageBlob() );
         $imagick->clear();
