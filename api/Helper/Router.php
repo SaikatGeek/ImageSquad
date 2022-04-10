@@ -32,10 +32,9 @@ class Router extends Http
     function __construct()
     {
 
-        self::$uri = $_SERVER["REQUEST_URI"];
         $this->corsProtection();
-        
-       
+        self::$uri = $_SERVER["REQUEST_URI"];
+               
     }
 
     public function corsProtection(){
