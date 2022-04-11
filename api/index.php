@@ -14,6 +14,8 @@ Router::get("gallery", "ImageController@galleryImageList");
 Router::get("resize", "ImageController@resizeImage");
 Router::get("sepia", "ImageController@sepiaImage");
 Router::get("sharpen", "ImageController@sharpenImage");
+Router::get("wave", "ImageController@waveImage");
+Router::get("contrast", "ImageController@localContrastImage");
 
 
 
