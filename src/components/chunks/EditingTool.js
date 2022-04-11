@@ -1,5 +1,6 @@
 import React from 'react'
-import Resize from '../module/resize'
+import Resize from '../module/Resize'
+import Sepia from '../module/Sepia'
 
 const EditingTool = ({statusObject, proceedImageUrl, imageUrl}) => {
     
@@ -14,9 +15,14 @@ const EditingTool = ({statusObject, proceedImageUrl, imageUrl}) => {
 
         : ""
       }
-        {
-            statusObject.sepiaStatus ? "sepiaStatus" : "0"
-        }
+      {
+        statusObject.sepiaStatus ? 
+          <Sepia 
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+          />
+        : "0"
+      }
         {
             statusObject.sharpenStatus ? "sharpenStatus" : "0"
         }
