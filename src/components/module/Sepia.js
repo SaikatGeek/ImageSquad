@@ -31,7 +31,7 @@ const Sepia = ({ proceedImageUrl, imageUrl, handleProgress }) => {
             <div className="col">
                 <Slider
                     onChange={(event) => setRange(event.target.value)}
-                    aria-label="Temperature"
+                    aria-label="Range"
                     valueLabelDisplay="auto"
                     max={255}
                 />

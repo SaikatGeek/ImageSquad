@@ -33,7 +33,7 @@ const Sharpen = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 				<label>Radius</label>
 				<Slider
 					onChange={(event) => setRadius(event.target.value)}
-					aria-label="Temperature"
+					aria-label="Radius"
 					valueLabelDisplay="auto"
 					max={10}
 				/>
@@ -42,7 +42,7 @@ const Sharpen = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 				<label>Sigma</label>
 				<Slider
 					onChange={(event) => setSigma(event.target.value)}
-					aria-label="Temperature"
+					aria-label="Sigma"
 					valueLabelDisplay="auto"
 					max={100}
 				/>
