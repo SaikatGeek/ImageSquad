@@ -43,7 +43,7 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
             imageUrl={imageUrl}
             handleProgress={handleProgress}
           />
-       : "0"
+       : ""
       }
       {
         statusObject.contrastStatus ? 
@@ -52,7 +52,7 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
             imageUrl={imageUrl}
             handleProgress={handleProgress}
           />
-        : "0"
+        : ""
       }
       {
         statusObject.annotateStatus ? "waveStatus" : "0"
