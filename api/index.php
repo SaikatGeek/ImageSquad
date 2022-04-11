@@ -13,6 +13,7 @@ use Api\Controller\ImageController;
 Router::get("gallery", "ImageController@galleryImageList");
 Router::get("resize", "ImageController@resizeImage");
 Router::get("sepia", "ImageController@sepiaImage");
+Router::get("sharpen", "ImageController@sharpenImage");
 
 
 
