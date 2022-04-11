@@ -5,15 +5,20 @@ import env from '../../env.json';
 
 const Sepia = ({ proceedImageUrl, imageUrl, handleProgress }) => {
     const [range, setRange] = useState(50);
+    const [actionStatus, setActionStatus] = useState(false);
+
     const trigger = async () => {
-        let varRange = Number(range);
         handleProgress(true)
+        setActionStatus(true)
+
+        let varRange = Number(range);
         await axios.post(`${env.API_BASE_URL}/sepia`, {
             'range': varRange,
             'imagePath': imageUrl
         })
             .then(data => {
                 handleProgress(false)
+                setActionStatus(false)
                 proceedImageUrl(data)
             })
             .catch(error => {
@@ -33,7 +38,12 @@ const Sepia = ({ proceedImageUrl, imageUrl, handleProgress }) => {
             </div>
 
             <div className="col">
-                <button onClick={() => trigger()} type="button" className="btn btn-dark px-3" >Proceed</button>
+                <button 
+                    onClick={() => trigger()} 
+                    type="button" 
+                    className="btn btn-dark px-3" 
+                    disabled={actionStatus} 
+                >Proceed</button>
             </div>
 
         </div>

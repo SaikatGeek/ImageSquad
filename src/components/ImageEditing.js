@@ -10,6 +10,7 @@ const ImageEditing = () => {
   const location = useLocation();
   const navigation = useNavigate();
   const [imageUrl, setImageUrl] = useState('');
+  const [loadPage, setLoadPage] = useState(true);
   const [circularProgress, setCircularProgress ] = useState(false)
   const [resizeStatus, setResizeStatus] = useState(false);
   const [sepiaStatus, setSepiaStatus] = useState(false);
@@ -29,6 +30,12 @@ const ImageEditing = () => {
 
   const handleProgress = (value) => {
     setCircularProgress(value)
+    setLoadPage(false)
+    setImageUrl('')
+  }
+
+  const handleImageUrl = () =>{
+    setImageUrl('')
   }
 
   const handleEditingFeature = (value) => {
@@ -96,6 +103,7 @@ const ImageEditing = () => {
 
                       <EditingOption 
                         handleEditingFeature={handleEditingFeature}
+                        handleImageUrl={handleImageUrl}
                       />    
 
                       <hr/>
@@ -118,28 +126,32 @@ const ImageEditing = () => {
                     </div>
                     {
                       imageUrl.length > 0  ?
-                      <a 
-                        href={`data:image/png;base64,${imageUrl}`} 
-                        className="m-auto " 
-                        download="image" 
-                        data-bs-toggle="tooltip" 
-                        data-bs-placement="top" 
-                        title="Click to download"
-                      >
-                        <img 
-                          className='img-fluid m-auto shadow p-2 bg-body rounded'
-                          src={`data:image/png;base64,${imageUrl}`}
-                          alt=''
-                          
-                        />
-                      </a>
-                      : 
-                      circularProgress === true ?
+                        <a 
+                          href={`data:image/png;base64,${imageUrl}`} 
+                          className="m-auto " 
+                          download="image" 
+                          data-bs-toggle="tooltip" 
+                          data-bs-placement="top" 
+                          title="Click to download"
+                        >
+                          <img 
+                            className='img-fluid m-auto shadow p-2 bg-body rounded'
+                            src={`data:image/png;base64,${imageUrl}`}
+                            alt=''
+                            
+                          />
+                        </a>
+                        : 
+                        loadPage === false ?
+                        
+                        ( circularProgress === true ?
 
-                      <Stack sx={{ color: 'grey.500' }} className="m-auto" spacing={5} direction="row">
-                        <CircularProgress color="secondary" />
-                      </Stack>
-                      : ''
+                          <Stack sx={{ color: 'grey.500' }} className="m-auto" spacing={2} direction="row">
+                            <CircularProgress color="secondary" />
+                          </Stack>
+                          : '')
+
+                        : ''
                       
                     }
                   </div>

@@ -4,13 +4,15 @@ import env from '../../env.json';
 
 const Resize = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 	const [bestFit, setBestFit] = useState(false);
+	const [actionStatus, setActionStatus] = useState(false);
 	const [width, setWidth] = useState(450);
 	const [height, setHeight] = useState(400);
 
 	const trigger = async () => {
+		handleProgress(true)
+		setActionStatus(true)
 		let varWidth = Number(width) < 100 ? 100 : Number(width);
 		let varHeight = Number(height) < 100 ? 100 : Number(height);
-		handleProgress(true)
 		await axios.post(`${env.API_BASE_URL}/resize`, {
 			'width': varWidth,
 			'height': varHeight,
@@ -19,6 +21,7 @@ const Resize = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 		})
 			.then(data => {
 				handleProgress(false)
+				setActionStatus(false)
 				proceedImageUrl(data)
 			})
 			.catch(error => {
@@ -77,7 +80,12 @@ const Resize = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 			</div>
 
 			<div className="col">
-				<button onClick={() => trigger()} type="button" className="btn btn-dark px-3" >Proceed</button>
+				<button 
+					onClick={() => trigger()} 
+					type="button" 
+					className="btn btn-dark px-3" 
+					disabled={actionStatus} 
+				>Proceed</button>
 			</div>
 
 		</div>

@@ -24,7 +24,7 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
             imageUrl={imageUrl}
             handleProgress={handleProgress}
           />
-          : "0"
+          : ""
       }
       {
         statusObject.sharpenStatus ?
@@ -33,7 +33,7 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
             imageUrl={imageUrl}
             handleProgress={handleProgress}
           /> 
-          : "0"
+          : ""
       }
       {
         statusObject.waveStatus ? "waveStatus" : "0"
