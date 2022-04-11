@@ -73,10 +73,53 @@ class ImageController
             header("Content-Type: image/jpeg");
             echo base64_encode($imagick->getImageBlob());
             $imagick->clear();
-        } catch(\ImagickException $e) {
-            echo 'Error: ' , $e->getMessage();
+        } catch (\ImagickException $e) {
+            echo 'Error: ', $e->getMessage();
             die();
         }
-        
+    }
+
+    public static function waveImage()
+    {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $file = new FileHandler;
+        $amplitude = $data['amplitude'];
+        $length = $data['length'];
+        $imagePath = $data['imagePath'];
+
+        try {
+            $imagick = new \Imagick(realpath($file->projectRootPath() . $imagePath));
+            $imagick->waveImage($amplitude, $length);
+            header("Content-Type: image/jpeg");
+            echo base64_encode($imagick->getImageBlob());
+            $imagick->clear();
+        } catch (\ImagickException $e) {
+            echo 'Error: ', $e->getMessage();
+            die();
+        }
+    }
+
+    public static function localContrastImage()
+    {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $file = new FileHandler;
+        $radius = $data['radius'];
+        $strength = $data['strength'];
+        $imagePath = $data['imagePath'];
+
+        try {
+            $imagick = new \Imagick(realpath($file->projectRootPath() . $imagePath));
+            $imagick->localContrastImage(
+                $radius,
+                $strength
+            );
+            header("Content-Type: image/jpeg");
+            echo base64_encode($imagick->getImageBlob());
+            $imagick->clear();
+            
+        } catch (\ImagickException $e) {
+            echo 'Error: ', $e->getMessage();
+            die();
+        }
     }
 }
