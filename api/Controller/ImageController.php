@@ -116,7 +116,41 @@ class ImageController
             header("Content-Type: image/jpeg");
             echo base64_encode($imagick->getImageBlob());
             $imagick->clear();
+
+        } catch (\ImagickException $e) {
+            echo 'Error: ', $e->getMessage();
+            die();
+        }
+    }
+
+    public static function annotateImage()
+    {
+
+        $data = json_decode(file_get_contents('php://input'), true);
+        $file = new FileHandler;
+        $strokeColor = $data['strokeColor'];
+        $fillColor = $data['fillColor'];
+        $text = $data['text'];
+        $imagePath = $data['imagePath'];
+
+
+        try {
+            $imagick = new \Imagick(realpath($file->projectRootPath() . $imagePath));
+
+            $draw = new \ImagickDraw();
+            $draw->setStrokeColor($strokeColor);
+            $draw->setFillColor($fillColor);
+
+            $draw->setStrokeWidth(1);
+            $draw->setFontSize(36);
             
+            $draw->setFont("../api/fonts/RobotoCondensed-Regular.ttf");
+            $imagick->annotateimage($draw, 40, 40, 0, $text);
+
+            header("Content-Type: image/jpeg");
+            echo base64_encode($imagick->getImageBlob());
+            $imagick->clear();
+
         } catch (\ImagickException $e) {
             echo 'Error: ', $e->getMessage();
             die();
