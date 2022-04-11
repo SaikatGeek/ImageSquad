@@ -36,7 +36,7 @@ const Home = () => {
                         src={`${env.API_IMAGE_URL}${data[1]}`} 
                         alt="" 
                         key={data[1]} 
-                        style={{height: "360px", width: "580px"}}
+                        style={{height: "320px", width: "580px"}}
 
                     />
                   </Link>
