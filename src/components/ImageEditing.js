@@ -70,9 +70,7 @@ const ImageEditing = () => {
             <div className='col-12'>
               <div className='row '>
                 <div className="col-md-6">
-
                   <div className="card" style={{ "height": "594px" }}>
-
                     <div className="card-header text-center">
                       <h5>Original Image</h5>
                     </div>
@@ -87,12 +85,12 @@ const ImageEditing = () => {
                     <div className="card-body">                  
                       <p className="card-text">Editing Tool:</p>
 
-                      <hr/>
-                      
+                      <hr/>   
+
                       <EditingOption 
                         handleEditingFeature={handleEditingFeature}
-                      />
-                      
+                      />    
+
                       <hr/>
 
                       <EditingTool 
@@ -101,20 +99,25 @@ const ImageEditing = () => {
                         imageUrl={location.state.data[1]}
                       />
                     </div>
-
                   </div>              
                 </div>
 
                 <div className="col-md-6 col-sm-12">
 
                   <div className="card " style={{ "height": "594px" }}>
-
                     <div className="card-header text-center">
                       <h5>Processed Image</h5>
                     </div>
                     {
                       imageUrl.length > 0 ?
-                      <a href={`data:image/png;base64,${imageUrl}`} className="m-auto " download="image" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to download">
+                      <a 
+                        href={`data:image/png;base64,${imageUrl}`} 
+                        className="m-auto " 
+                        download="image" 
+                        data-bs-toggle="tooltip" 
+                        data-bs-placement="top" 
+                        title="Click to download"
+                      >
                         <img 
                           className='img-fluid m-auto shadow p-2 bg-body rounded'
                           src={`data:image/png;base64,${imageUrl}`}
@@ -125,8 +128,6 @@ const ImageEditing = () => {
                       : ''
                       
                     }
-
-
                   </div>
 
                 </div>
