@@ -43,6 +43,21 @@ class ImageController
         echo base64_encode( $imagick->getImageBlob() );
         $imagick->clear();
     }
+    
+    public static function sepiaImage()
+    {
+        $data = json_decode( file_get_contents('php://input'), true );
+
+        $file = new FileHandler;
+        $range = $data['range'] > 100 ? $data['range'] : 100;
+        $imagePath = $data['imagePath'];
+
+        $imagick = new \Imagick(realpath($file->projectRootPath().$imagePath));
+        $imagick->sepiaToneImage($range);
+        header("Content-Type: image/jpeg");
+        echo base64_encode( $imagick->getImageBlob() );
+        $imagick->clear();
+    }
 
 
 
