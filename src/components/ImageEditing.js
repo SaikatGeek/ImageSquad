@@ -114,7 +114,7 @@ const ImageEditing = () => {
                     </div>
                     {
                       imageUrl.length > 0 ?
-                      <a href={`data:image/png;base64,${imageUrl}`} className="m-auto " download="image">
+                      <a href={`data:image/png;base64,${imageUrl}`} className="m-auto " download="image" data-bs-toggle="tooltip" data-bs-placement="top" title="Click to download">
                         <img 
                           className='img-fluid m-auto shadow p-2 bg-body rounded'
                           src={`data:image/png;base64,${imageUrl}`}
