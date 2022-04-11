@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import env from '../../env.json';
 
-const Resize = ({ proceedImageUrl, imageUrl }) => {
+const Resize = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 	const [bestFit, setBestFit] = useState(false);
 	const [width, setWidth] = useState(450);
 	const [height, setHeight] = useState(400);
@@ -10,7 +10,7 @@ const Resize = ({ proceedImageUrl, imageUrl }) => {
 	const trigger = async () => {
 		let varWidth = Number(width) < 100 ? 100 : Number(width);
 		let varHeight = Number(height) < 100 ? 100 : Number(height);
-
+		handleProgress(true)
 		await axios.post(`${env.API_BASE_URL}/resize`, {
 			'width': varWidth,
 			'height': varHeight,
@@ -18,6 +18,7 @@ const Resize = ({ proceedImageUrl, imageUrl }) => {
 			'imagePath': imageUrl
 		})
 			.then(data => {
+				handleProgress(false)
 				proceedImageUrl(data)
 			})
 			.catch(error => {

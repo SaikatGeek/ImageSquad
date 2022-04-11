@@ -1,40 +1,49 @@
 import React from 'react'
 import Resize from '../module/Resize'
 import Sepia from '../module/Sepia'
+import Sharpen from '../module/Sharpen'
 
-const EditingTool = ({statusObject, proceedImageUrl, imageUrl}) => {
-    
+const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }) => {
+
   return (
     <div>
       {
-        statusObject.resizeStatus ? 
-            <Resize 
-              proceedImageUrl={proceedImageUrl}
-              imageUrl={imageUrl}
-            />
-
-        : ""
-      }
-      {
-        statusObject.sepiaStatus ? 
-          <Sepia 
+        statusObject.resizeStatus ?
+          <Resize
             proceedImageUrl={proceedImageUrl}
             imageUrl={imageUrl}
+            handleProgress={handleProgress}
           />
-        : "0"
+
+          : ""
       }
-        {
-            statusObject.sharpenStatus ? "sharpenStatus" : "0"
-        }
-        {
-            statusObject.waveStatus ? "waveStatus" : "0"
-        }
-        {
-            statusObject.contrastStatus ? "waveStatus" : "0"
-        }
-        {
-            statusObject.annotateStatus ? "waveStatus" : "0"
-        }
+      {
+        statusObject.sepiaStatus ?
+          <Sepia
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+            handleProgress={handleProgress}
+          />
+          : "0"
+      }
+      {
+        statusObject.sharpenStatus ?
+         <Sharpen
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+            handleProgress={handleProgress}
+          /> 
+          : "0"
+      }
+      {
+        statusObject.waveStatus ? "waveStatus" : "0"
+      }
+      {
+        statusObject.contrastStatus ? "waveStatus" : "0"
+      }
+      {
+        statusObject.annotateStatus ? "waveStatus" : "0"
+      }
     </div>
   )
 }

@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import CircularProgress from '@mui/material/CircularProgress';
 import EditingOption from './chunks/EditingOption';
 import EditingTool from './chunks/EditingTool';
+import Stack from '@mui/material/Stack';
 import env from '../env.json';
 
 const ImageEditing = () => {
   const location = useLocation();
   const navigation = useNavigate();
   const [imageUrl, setImageUrl] = useState('');
+  const [circularProgress, setCircularProgress ] = useState(false)
   const [resizeStatus, setResizeStatus] = useState(false);
   const [sepiaStatus, setSepiaStatus] = useState(false);
   const [sharpenStatus, setSharpenStatus] = useState(false);
@@ -23,6 +26,10 @@ const ImageEditing = () => {
     contrastStatus: contrastStatus,
     annotateStatus: annotateStatus
   };
+
+  const handleProgress = (value) => {
+    setCircularProgress(value)
+  }
 
   const handleEditingFeature = (value) => {
     if("resize" === value) handleEditingStatus(setResizeStatus)
@@ -97,6 +104,7 @@ const ImageEditing = () => {
                         statusObject={statusObject}
                         proceedImageUrl={proceedImageUrl}
                         imageUrl={location.state.data[1]}
+                        handleProgress={handleProgress}
                       />
                     </div>
                   </div>              
@@ -109,7 +117,7 @@ const ImageEditing = () => {
                       <h5>Processed Image</h5>
                     </div>
                     {
-                      imageUrl.length > 0 ?
+                      imageUrl.length > 0  ?
                       <a 
                         href={`data:image/png;base64,${imageUrl}`} 
                         className="m-auto " 
@@ -125,6 +133,12 @@ const ImageEditing = () => {
                           
                         />
                       </a>
+                      : 
+                      circularProgress === true ?
+
+                      <Stack sx={{ color: 'grey.500' }} className="m-auto" spacing={5} direction="row">
+                        <CircularProgress color="secondary" />
+                      </Stack>
                       : ''
                       
                     }
