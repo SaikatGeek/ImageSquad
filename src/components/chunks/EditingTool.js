@@ -4,6 +4,7 @@ import Sepia from '../module/Sepia'
 import Sharpen from '../module/Sharpen'
 import Wave from '../module/Wave'
 import Contrast from '../module/Contrast'
+import Annotate from '../module/Annotate'
 
 const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }) => {
 
@@ -55,7 +56,13 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
         : ""
       }
       {
-        statusObject.annotateStatus ? "waveStatus" : "0"
+        statusObject.annotateStatus ? 
+          <Annotate
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+            handleProgress={handleProgress}
+          />
+          : ""
       }
     </div>
   )
