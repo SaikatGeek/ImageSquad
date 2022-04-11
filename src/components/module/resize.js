@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import env from '../../env.json';
-		
+
 const Resize = ({ proceedImageUrl, imageUrl }) => {
 	const [bestFit, setBestFit] = useState(false);
 	const [width, setWidth] = useState(450);
