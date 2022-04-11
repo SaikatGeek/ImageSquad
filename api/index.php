@@ -10,8 +10,9 @@ use Api\Controller\ImageController;
 
 // echo Request::endpoint();
 
-Router::get("resize", "ImageController@resizeImage");
 Router::get("gallery", "ImageController@galleryImageList");
+Router::get("resize", "ImageController@resizeImage");
+Router::get("sepia", "ImageController@sepiaImage");
 
 
 
