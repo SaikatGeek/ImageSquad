@@ -2,6 +2,8 @@ import React from 'react'
 import Resize from '../module/Resize'
 import Sepia from '../module/Sepia'
 import Sharpen from '../module/Sharpen'
+import Wave from '../module/Wave'
+import Contrast from '../module/Contrast'
 
 const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }) => {
 
@@ -14,7 +16,6 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
             imageUrl={imageUrl}
             handleProgress={handleProgress}
           />
-
           : ""
       }
       {
@@ -36,10 +37,22 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
           : ""
       }
       {
-        statusObject.waveStatus ? "waveStatus" : "0"
+        statusObject.waveStatus ? 
+          <Wave
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+            handleProgress={handleProgress}
+          />
+       : "0"
       }
       {
-        statusObject.contrastStatus ? "waveStatus" : "0"
+        statusObject.contrastStatus ? 
+          <Contrast
+            proceedImageUrl={proceedImageUrl}
+            imageUrl={imageUrl}
+            handleProgress={handleProgress}
+          />
+        : "0"
       }
       {
         statusObject.annotateStatus ? "waveStatus" : "0"
