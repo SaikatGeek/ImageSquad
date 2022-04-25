@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
   return (
-    <nav className="navbar navbar-light navbar-expand-lg" style={{ "backgroundColor": "#e3f2fd" }}> 
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg"> 
       <div className="container-md">
-        <p className="navbar-brand" >ImageSquad</p>
+        <Link className="navbar-brand" to={`/`}>
+          ImageSquad
+        </Link>
       </div>
     </nav>
   )
