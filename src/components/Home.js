@@ -23,7 +23,7 @@ const Home = () => {
 
 
   return (
-    <div className="col-11 col-md-10 m-auto pt-5">
+    <div className="col-11 col-md-10 m-auto pt-5 mb-4">
       <div className="card border-secondary" >
         <div className="row">
           {

@@ -79,7 +79,7 @@ const ImageEditing = () => {
       location.state === null ?
         navigation(-1)
         : 
-        <div className='container-fluid py-5'>
+        <div className='container-fluid py-5 mb-4'>
           <div className='row'>
             <div className='col-12'>
               <div className='row '>
