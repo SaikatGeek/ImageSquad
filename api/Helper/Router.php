@@ -25,7 +25,7 @@ class Router extends Http
 
     private const LIMIT = 2; 
 
-    private $Http ;
+    private $Http;
 
     public $RouteMap = [];
 
@@ -83,7 +83,6 @@ class Router extends Http
                 || $this->stringArgumentValidation($arguments)
             ){
                 return Controller::__callStatic($name, $arguments);
-                
             }
             else{
                 print("stop!");
@@ -103,7 +102,6 @@ class Router extends Http
         $newSelf = new self;
         if( $newSelf->checkSupportedMethod( strtoupper($name) )){
             return $newSelf->callStaticControllerPassFromRoute($name, $arguments);
-
         }
         else{
             // return throw new error(); invalid http verb
