@@ -10,9 +10,15 @@ class Http
     {
     }
 
-
-    public function acceptVerb(string $verb): bool
+    private function getHttpVerb()
     {
-        return in_array($verb, self::$verbs);
+        return $_SERVER['REQUEST_METHOD'];
+    }
+
+
+    public function acceptVerb(): bool
+    {
+        $verb = $this->getHttpVerb();
+        return in_array($verb, self::$verbs) ;
     }
 }

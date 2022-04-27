@@ -51,10 +51,10 @@ class Router extends Http
 
     }
 
-    public function checkSupportedMethod(string $name)
+    public function checkSupportedMethod()
     {
 
-        return $this->acceptVerb($name);
+        return $this->acceptVerb();
 
     }
 
@@ -86,12 +86,12 @@ class Router extends Http
             }
             else{
                 print("stop!");
-                // return throw new error();
+                // throw new error();
             }
 
         }
         else{
-            // return throw new error(); // don't allow too much argument
+            // throw new error(); // don't allow too much argument
         }
 
     }
@@ -100,11 +100,12 @@ class Router extends Http
     {
 
         $newSelf = new self;
-        if( $newSelf->checkSupportedMethod( strtoupper($name) )){
+        
+        if( $newSelf->checkSupportedMethod()){
             return $newSelf->callStaticControllerPassFromRoute($name, $arguments);
         }
         else{
-            // return throw new error(); invalid http verb
+            die("Bad Request Method");
         }
         
     }
