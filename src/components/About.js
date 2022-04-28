@@ -12,7 +12,7 @@ const About = () => {
                 <p className="card-text"><i>ImgeSquad</i> is an image editing tool that should be able to modify the selected types of images. In the Backend section here I developed a routing system and it follows a popular MVC file structure. In the frontend section, I used the SPA framework. Let's see below the technical lookup.</p>
                 <dl class="row">
                     <dt class="col-4 "> <div className="float-end">Frontend</div></dt>
-                    <dd class="col-8"> <div className="float-start">React, Bootstrap</div></dd>
+                    <dd class="col-8"> <div className="float-start">React, Bootstrap, Material UI</div></dd>
 
                     <dt class="col-4 "> <div className="float-end">Backend</div></dt>
                     <dd class="col-8"> <div className="float-start">PHP v7.4.19</div></dd>
