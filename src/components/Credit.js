@@ -11,7 +11,7 @@ const Credit = () => {
                 <div class="col-md-9">
                     <div class="card-body">
                         <h5 class="card-title">Md Ariful Islam Saikat</h5>
-                        <p class="card-text">Hi, I am a full stack software developer with 2+ years of production experience, last years specializing in programming on modern Javascript frontend/backend. Although my primary language is Javascript and PHP. Have a basic C and C++ knowledge. </p>
+                        <p class="card-text">Hi, I am a full stack software developer with 2.5 years of production experience, last years specializing in programming on modern Javascript frontend/backend. Although my primary language is Javascript and PHP. Have a basic C and C++ knowledge. </p>
                         <p class="card-text"><small class="text-muted">Last updated: April 2022</small></p>
                     </div>
                 </div>
