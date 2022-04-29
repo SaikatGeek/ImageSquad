@@ -18,7 +18,7 @@ const About = () => {
                     <dd class="col-8"> <div className="float-start">PHP v7.4.19</div></dd>
 
                     <dt class="col-4 "> <div className="float-end">Extension</div></dt>
-                    <dd class="col-8"> <div className="float-start">PHP Imagick</div></dd>
+                    <dd class="col-8"> <div className="float-start">PHP ImageMagick</div></dd>
 
                     <dt class="col-4 "> <div className="float-end">Features</div></dt>
                     <dd class="col-8"> 
