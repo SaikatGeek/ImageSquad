@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Slider from '@mui/material/Slider';
 import axios from 'axios';
 import env from '../../env.json';
 
@@ -39,7 +38,7 @@ const Annotate = ({ proceedImageUrl, imageUrl, handleProgress }) => {
                     className="form-control" 
                     id="favcolor" 
                     name="favcolor" 
-                    value="#ff0000"
+                    value={strokeColor}
                     onChange={(event) => setStrokeColor(event.target.value)}
                 />
 			</div>
@@ -50,7 +49,7 @@ const Annotate = ({ proceedImageUrl, imageUrl, handleProgress }) => {
                     className="form-control" 
                     id="fillColor" 
                     name="favcolor" 
-                    value="#000000"
+                    value={fillColor}
                     onChange={(event) => setFillColor(event.target.value)}
                 />
 			</div>
@@ -58,7 +57,7 @@ const Annotate = ({ proceedImageUrl, imageUrl, handleProgress }) => {
             <div className="col">
 				<input
 					type="text"
-					className="form-control"
+					className="form-control mt-3"
 					placeholder="text"					
 					onChange={event => setText(event.target.value)}
 					data-bs-toggle="tooltip"
@@ -72,7 +71,7 @@ const Annotate = ({ proceedImageUrl, imageUrl, handleProgress }) => {
 				<button 
 					onClick={() => trigger()} 
 					type="button" 
-					className="btn btn-dark px-3" 
+					className="btn btn-dark px-3 mt-3" 
 					disabled={actionStatus}
 				>Proceed</button>
 			</div>

@@ -67,8 +67,6 @@ const ImageEditing = () => {
     setImageUrl(url.data)
   }
 
-  
-
   useEffect(() => {
     if(location.state === undefined || location.state === null){
       navigation(-1);
@@ -84,7 +82,7 @@ const ImageEditing = () => {
             <div className='col-12'>
               <div className='row '>
                 <div className="col-md-6">
-                  <div className="card" style={{ "height": "594px" }}>
+                  <div className="card mb-2" >
                     <div className="card-header text-center">
                       <h5>Original Image</h5>
                     </div>

@@ -9,7 +9,7 @@ import Annotate from '../module/Annotate'
 const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }) => {
 
   return (
-    <div>
+    <>
       {
         statusObject.resizeStatus ?
           <Resize
@@ -64,7 +64,7 @@ const EditingTool = ({ statusObject, proceedImageUrl, imageUrl, handleProgress }
           />
           : ""
       }
-    </div>
+    </>
   )
 }
 
