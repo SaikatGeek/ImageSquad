@@ -10,17 +10,22 @@
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
+Note: [imagemagick](https://imagemagick.org/script/download.php) Module is required <br/>
+
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/SaikatGeek/ImageSquad.git
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd ImageSquad
 
 # Install dependencies
 $ npm install
 
-# Run the app
+# Run the backend api
+$ php -S localhost:8080 [Default Port: 8080]
+
+# Run the frontend app
 $ npm start
 ```
 
