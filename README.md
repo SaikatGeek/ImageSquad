@@ -1,3 +1,9 @@
+<h1 align="center">
+  <br>
+    ImageSquad
+  <br>
+</h1>
+
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
 ## How To Use
