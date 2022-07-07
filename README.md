@@ -4,6 +4,8 @@
   <br>
 </h1>
 
+ImgeSquad is an image editing tool that should be able to modify the selected types of images. In the Backend section here I developed a routing system and it follows a popular MVC file structure. In the frontend section, I used the SPA framework. Let's see below the technical lookup.
+
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
 ## How To Use
@@ -22,8 +24,8 @@ $ cd ImageSquad
 # Install dependencies
 $ npm install
 
-# Run the backend api
-$ php -S localhost:8080 [Default Port: 8080]
+# Run the backend api [Default Port: 8080]
+$ php -S localhost:8080
 
 # Run the frontend app
 $ npm start
