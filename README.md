@@ -8,7 +8,9 @@ ImgeSquad is an image editing tool that should be able to modify the selected ty
 
 ![My image](https://raw.githubusercontent.com/SaikatGeek/Githost/main/ImageSquad/Screenshot.png) 
 
+## GIF Loading...
 ![My image](https://raw.githubusercontent.com/SaikatGeek/Githost/main/ImageSquad/NewSquad.gif) 
+
 
 ## How To Use
 
