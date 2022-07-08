@@ -6,7 +6,9 @@
 
 ImgeSquad is an image editing tool that should be able to modify the selected types of images. In the Backend section here I developed a routing system and it follows a popular MVC file structure. In the frontend section, I used the SPA framework. Let's see below the technical lookup.
 
-![](https://imgur.com/MWbjVJT) 
+![My image](https://raw.githubusercontent.com/SaikatGeek/Githost/main/ImageSquad/Screenshot.png) 
+
+![My image](https://raw.githubusercontent.com/SaikatGeek/Githost/main/ImageSquad/NewSquad.gif) 
 
 ## How To Use
 
